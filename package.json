@@ -1,0 +1,75 @@
+{
+  "name": "react-lib-template",
+  "version": "0.0.0",
+  "description": "React Library template",
+  "license": "MIT",
+  "repository": "barelyhuman/react-async-view",
+  "author": {
+    "name": "Reaper",
+    "email": "ahoy@barelyhuman.dev",
+    "url": "https://barelyhuman.dev"
+  },
+  "type": "module",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "build": "babel 'src' --out-dir=dist",
+    "prepare": "npm run build && husky install",
+    "test": "npm run size",
+    "fix": "npx standard --fix src/**/*.js",
+    "size": "GITHUB_TOKEN='' npx bundlesize"
+  },
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "bundlesize": [
+    {
+      "path": "./dist/**/*.js",
+      "maxSize": "1 kB",
+      "compression": "brotli"
+    },
+    {
+      "path": "./dist/**/*.js",
+      "maxSize": "1 kB"
+    }
+  ],
+  "lint-staged": {
+    "*.js": [
+      "npx standard --fix"
+    ]
+  },
+  "keywords": [
+    "react",
+    "component",
+    "components",
+    "util",
+    "utils"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@types/react": "^16.9.2",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.7"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  }
+}

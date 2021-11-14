@@ -1,0 +1,105 @@
+Arguments: 
+  /Users/sid/.nvm/versions/node/v16.10.0/bin/node /Users/sid/.nvm/versions/node/v16.10.0/bin/yarn
+
+PATH: 
+  /Users/sid/.deno/bin:/Users/sid/.nvm/versions/node/v16.10.0/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/USR/LOCAL/BIN:/USR/BIN:/BIN:/USR/SBIN:/SBIN:/LIBRARY/APPLE/USR/BINsr/local/bin:/Users/sid/android/emulator:/Users/sid/android/tools:/Users/sid/android/tools/bin:/Users/sid/android/platform-tools:/opt/homebrew/lib/ruby/gems/3.0.0/bin:/opt/homebrew/opt/ruby/bin:/Users/sid/go/bin:
+
+Yarn version: 
+  1.22.15
+
+Node version: 
+  16.10.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  SyntaxError: /Users/sid/lab/react-lib-template/package.json: Unexpected token ] in JSON at position 1114
+      at JSON.parse (<anonymous>)
+      at /Users/sid/.nvm/versions/node/v16.10.0/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/Users/sid/.nvm/versions/node/v16.10.0/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /Users/sid/.nvm/versions/node/v16.10.0/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "react-lib-template",
+    "version": "0.0.0",
+    "description": "React Library template",
+    "license": "MIT",
+    "repository": "barelyhuman/react-async-view",
+    "author": {
+      "name": "Reaper",
+      "email": "ahoy@barelyhuman.dev",
+      "url": "https://barelyhuman.dev"
+    },
+    "type": "module",
+    "types": "./index.d.ts",
+    "exports": {
+      ".": "./dist/index.js",
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/index.js",
+    "engines": {
+      "node": ">=12"
+    },
+    "scripts": {
+      "build": "babel 'src' --out-dir=dist",
+      "prepare": "npm run build && husky install",
+      "test": "npm run size",
+      "fix": "npx standard --fix src/**/*.js",
+      "size": "GITHUB_TOKEN='' npx bundlesize"
+    },
+    "files": [
+      "dist",
+      "index.d.ts"
+    ],
+    "bundlesize": [
+      {
+        "path": "./dist/**/*.js",
+        "maxSize": "1 kB",
+        "compression": "brotli"
+      },
+      {
+        "path": "./dist/**/*.js",
+        "maxSize": "1 kB"
+      }
+    ],
+    "lint-staged": {
+      "*.js": [
+        "npx standard --fix"
+      ]
+    },
+    "keywords": [
+      "react",
+      "component",
+      "components",
+      "util",
+      "utils",
+    ],
+    "devDependencies": {
+      "@babel/cli": "^7.2.3",
+      "@babel/core": "^7.2.2",
+      "@babel/preset-react": "^7.0.0",
+      "@babel/register": "^7.0.0",
+      "@types/react": "^16.9.2",
+      "husky": "^7.0.4",
+      "lint-staged": "^11.2.6",
+      "react": "^16.7.0",
+      "react-dom": "^16.7.0"
+    },
+    "peerDependencies": {
+      "react": ">=16.7"
+    },
+    "babel": {
+      "presets": [
+        "@babel/preset-react"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
